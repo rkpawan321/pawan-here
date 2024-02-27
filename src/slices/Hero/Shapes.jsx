@@ -36,7 +36,15 @@ function Geometries() {
     ];
 
     const materials = [
-        new THREE.MeshNormalMaterial()
+        new THREE.MeshNormalMaterial(),
+        new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
+        new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
+        new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
+        new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
+        new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
+        new THREE.MeshStandardMaterial({ color: 0x2980b9, roughness: 0, metalness: 0.5 }),
+        new THREE.MeshStandardMaterial({ color: 0x2c3e50, roughness: 0.1, metalness: 0.5 }),
+
     ]
 
     // Pass to geometry
@@ -54,7 +62,7 @@ function Geometries() {
 
 function Geometry({ r, position, geometry, materials }) {
     const meshRef = useRef();
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(false);
     const startingMaterial = getRandomMaterial();
 
     function getRandomMaterial() {
@@ -86,6 +94,22 @@ function Geometry({ r, position, geometry, materials }) {
     const handlePointerOut = () => {
         document.body.style.cursor = "default"
     }
+
+    useEffect(() => {
+        gsap.context(() => {
+            setVisible(true)
+            gsap.from(meshRef.current.scale,
+                {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    duration: 1,
+                    ease: "elastic.out(1, 0.3)",
+                    delay: 0.3,
+                })
+        });
+        return () => cubeTexture.revert(); // cleanup
+    }, []);
 
     return (
         <group position={position} ref={meshRef}>
