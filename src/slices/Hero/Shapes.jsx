@@ -19,6 +19,8 @@ export default function Shapes() {
                         scale={40}
                         blur={1}
                         far={9} />
+                    {/* RK --> Environment --> this gives an HDR effect --> Feels like we are in complex lighting setup --> or else we just get normal maps */}
+                    {/* Environment values can be studio or sunset */}
                     <Environment preset="studio" />
                 </Suspense>
             </Canvas>
@@ -67,11 +69,18 @@ function Geometries() {
 
     ]
 
+    const soundEffects = [
+        new Audio("/sounds/knock1.ogg"),
+        new Audio("/sounds/knock2.ogg"),
+        new Audio("/sounds/knock3.ogg"),
+    ];
+
     // Pass to geometry
     return geometries.map(({ position, r, geometry }) => (
         <Geometry
             key={JSON.stringify(position)}
             position={position.map((p) => p * 2)}
+            soundEffects={soundEffects}
             geometry={geometry}
             materials={materials}
             r={r}
@@ -80,7 +89,7 @@ function Geometries() {
     ))
 }
 
-function Geometry({ r, position, geometry, materials }) {
+function Geometry({ r, position, geometry, materials, soundEffects }) {
     const meshRef = useRef();
     const [visible, setVisible] = useState(false);
     const startingMaterial = getRandomMaterial();
@@ -90,6 +99,9 @@ function Geometry({ r, position, geometry, materials }) {
     }
 
     function handleClick(e) {
+
+
+        gsap.utils.random(soundEffects).play();
         const mesh = e.object;
         // for the shapes to rotate random way in  all 3 axes
         // Its radiance (not degrees)
@@ -133,6 +145,7 @@ function Geometry({ r, position, geometry, materials }) {
 
     return (
         <group position={position} ref={meshRef}>
+            {/* RK --> Float is the one that is giving moving (i.e., flat effect) */}
             <Float speed={5 * r} rotationIntensity={6 * r} floatIntensity={5 * r}>
                 <mesh
                     geometry={geometry}
