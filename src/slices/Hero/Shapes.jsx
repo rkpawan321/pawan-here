@@ -153,7 +153,6 @@ function Geometry({ r, position, geometry, materials, soundEffects, texturePath 
     return (
         <group position={position} ref={meshRef}>
             {/* RK --> Float is the one that is giving moving (i.e., flat effect) */}
-
             <Float speed={5 * r} rotationIntensity={6 * r} floatIntensity={5 * r}>
                 <mesh
                     geometry={geometry}
