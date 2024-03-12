@@ -61,14 +61,16 @@ function Geometries() {
     ];
 
     const materials = [
-        // new THREE.MeshNormalMaterial(),
-        // new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
-        // new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
-        // new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
-        // new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
+        new THREE.MeshNormalMaterial(),
+        new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
+        new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
+        new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
+        new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
         new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
         // new THREE.MeshStandardMaterial({ color: 0x2980b9, roughness: 0, metalness: 0.5, texturePath: '/js_image.png', }),
-        new THREE.MeshStandardMaterial({ color: 0x2c3e50, roughness: 0.1, metalness: 0.5, texturePath: '/js_image.png', }),
+        // new THREE.MeshStandardMaterial({ color: 0x2c3e50, roughness: 0.1, metalness: 0.5, texturePath: '/js_image.png', }),
+        new THREE.MeshStandardMaterial({ color: 0x2980b9, roughness: 0, metalness: 0.5 }),
+        new THREE.MeshStandardMaterial({ color: 0x2c3e50, roughness: 0.1, metalness: 0.5 }),
 
     ]
 
@@ -98,8 +100,8 @@ function Geometry({ r, position, geometry, materials, soundEffects, texturePath 
     const [visible, setVisible] = useState(false);
     // const startingMaterial = getRandomMaterial();
 
-    const texture = texturePath ? useLoader(THREE.TextureLoader, texturePath) : null; // Load the texture if path is provided
-    const startingMaterial = texture ? new THREE.MeshBasicMaterial({ map: texture }) : getRandomMaterial();
+    // const texture = texturePath ? useLoader(THREE.TextureLoader, texturePath) : null; // Load the texture if path is provided
+    // const startingMaterial = texture ? new THREE.MeshBasicMaterial({ map: texture }) : getRandomMaterial();
 
     function getRandomMaterial() {
         return gsap.utils.random(materials)
@@ -160,7 +162,7 @@ function Geometry({ r, position, geometry, materials, soundEffects, texturePath 
                     onPointerOver={handlePointerOver}
                     onPointerOut={handlePointerOut}
                     visible={visible}
-                    material={startingMaterial}
+                // material={startingMaterial}
                 />
 
             </Float>
