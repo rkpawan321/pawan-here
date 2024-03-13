@@ -1,0 +1,54 @@
+{
+  "id": "biography",
+  "type": "SharedSlice",
+  "name": "Biography",
+  "description": "Biography",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Text",
+          "config": {
+            "label": "Button Link",
+            "placeholder": ""
+          }
+        },
+        "avatar": {
+          "type": "Text",
+          "config": {
+            "label": "Avatar",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

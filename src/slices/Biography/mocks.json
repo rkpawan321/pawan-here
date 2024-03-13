@@ -1,0 +1,34 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "worse",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "having",
+				"type": "Text"
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "corner",
+				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "FieldContent",
+				"value": "there",
+				"type": "Text"
+			},
+			"avatar": {
+				"__TYPE__": "FieldContent",
+				"value": "shallow",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
